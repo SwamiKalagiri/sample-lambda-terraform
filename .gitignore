@@ -1,0 +1,6 @@
+infrastructure/.terraform
+infrastructure/*.tfstate
+infrastructure/*.tfstate.backup
+node_modules
+*.zip
+.idea
