@@ -25,11 +25,11 @@ EOF
 }
 
 resource "aws_lambda_function" "test_lambda" {
-  filename         = "/Users/sk33561/Sandbox/aws-lambda-terraform/aws-lambda-terraform.zip"
+  filename         = "/Users/userId/Sandbox/aws-lambda-terraform/aws-lambda-terraform.zip"
   function_name    = "SampleFunctionWithTerraform"
   role             = "${aws_iam_role.iam_for_lambda.arn}"
   handler          = "index.get"
-  source_code_hash = "${base64sha256(file("/Users/sk33561/Sandbox/aws-lambda-terraform/aws-lambda-terraform.zip"))}"
+  source_code_hash = "${base64sha256(file("/Users/userId/Sandbox/aws-lambda-terraform/aws-lambda-terraform.zip"))}"
   runtime          = "nodejs8.10"
 
   environment {
