@@ -2,13 +2,11 @@ pipeline:
   build:
     image: node
     commands:
+      - echo $$github_token
       - npm install
       - npm test
       - npm run pack
   publish:
-    environment:
-      GITHUB_TOKEN:
-        from_secret: github_token
     image: plugins/npm
     registry: https://npm.pkg.github.com/swamikalagiri
     token: $GITHUB_TOKEN
