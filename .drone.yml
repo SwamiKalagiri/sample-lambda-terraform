@@ -9,6 +9,9 @@ pipeline:
     image: plugins/npm
     registry: https://npm.pkg.github.com/swamikalagiri
     token: $GITHUB_TOKEN
+    environment:
+    GITHUB_TOKEN:
+      from_secret: github_token
   deploy:
     image: jmccann/drone-terraform:1
     plan: false
