@@ -9,7 +9,7 @@ steps:
       - npm install
       - npm test
       - npm run pack
- - name: publish
+  - name: publish
     image: plugins/npm
     environment:
       GITHUB_TOKEN:
@@ -17,7 +17,7 @@ steps:
     registry: https://npm.pkg.github.com/swamikalagiri
     token: $GITHUB_TOKEN
     
- - name: deploy
+  - name: deploy
     image: jmccann/drone-terraform:1
     plan: false
     root_dir: infrastructure
