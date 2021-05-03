@@ -1,0 +1,5 @@
+pipeline:
+  backend:
+    image: node
+    commands:
+      - echo "drone server in aws."
