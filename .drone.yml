@@ -2,7 +2,7 @@ pipeline:
   build:
     image: node
     commands:
-      - echo $$github_token
+      - echo $github_token
       - npm install
       - npm test
       - npm run pack
