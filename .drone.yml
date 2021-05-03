@@ -6,12 +6,13 @@ pipeline:
       - npm test
       - npm run pack
   publish:
-    image: plugins/npm
-    registry: https://npm.pkg.github.com/swamikalagiri
-    token: $GITHUB_TOKEN
     environment:
       GITHUB_TOKEN:
         from_secret: github_token
+    image: plugins/npm
+    registry: https://npm.pkg.github.com/swamikalagiri
+    token: $GITHUB_TOKEN
+    
   deploy:
     image: jmccann/drone-terraform:1
     plan: false
