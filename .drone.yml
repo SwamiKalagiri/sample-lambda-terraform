@@ -1,11 +1,15 @@
 pipeline:
-  backend:
+  build:
     image: node
     commands:
       - npm install
       - npm test
       - npm run pack
-  terraform:
+  publish:
+    image: plugins/npm
+    registry: https://npm.pkg.github.com/swamikalagiri
+    token: $GITHUB_TOKEN
+  deploy:
     image: jmccann/drone-terraform:1
     plan: false
     root_dir: infrastructure
