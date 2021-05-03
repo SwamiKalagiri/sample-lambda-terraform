@@ -13,7 +13,8 @@ steps:
     image: plugins/npm
     settings:
       registry: https://npm.pkg.github.com/swamikalagiri
-      token: $GITHUB_TOKEN
+      token:
+        from_secret: $github_token
     
   - name: deploy
     image: jmccann/drone-terraform:1
