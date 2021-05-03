@@ -13,6 +13,7 @@ steps:
     image: plugins/npm
     settings:
       registry: https://npm.pkg.github.com/swamikalagiri
+      username: swamikalagiri
       token:
         from_secret: $github_token
     
