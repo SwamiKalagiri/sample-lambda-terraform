@@ -28,5 +28,8 @@
     "chance": "1.0.18",
     "jest": "23.6.0",
     "npm-pack-zip": "1.2.7"
-  }
+  },
+  "publishConfig": {
+  "registry":"https://npm.pkg.github.com"
+}
 }
