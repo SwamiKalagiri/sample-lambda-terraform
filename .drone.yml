@@ -1,17 +1,23 @@
-pipeline:
-  build:
+kind: pipeline
+name: default
+
+steps:
+  - name: build
     image: node
     commands:
       - echo $github_token
       - npm install
       - npm test
       - npm run pack
-  publish:
+ - name: publish
     image: plugins/npm
+    environment:
+      GITHUB_TOKEN:
+        from_secret: github_token
     registry: https://npm.pkg.github.com/swamikalagiri
     token: $GITHUB_TOKEN
     
-  deploy:
+ - name: deploy
     image: jmccann/drone-terraform:1
     plan: false
     root_dir: infrastructure
