@@ -4,6 +4,12 @@ provider "aws" {
   region = "us-east-1"
 }
 
+data "archive_file" "prepare_lambda_source" {
+    type        = "zip"
+    source_dir  = "source"
+    output_path = "sample_lambda.zip"
+}
+
 resource "aws_iam_role" "iam_for_lambda" {
   name = "iam_for_lambda"
 
@@ -24,17 +30,13 @@ resource "aws_iam_role" "iam_for_lambda" {
 EOF
 }
 
-resource "aws_lambda_function" "test_lambda" {
-  filename         = "/Users/userId/Sandbox/aws-lambda-terraform/aws-lambda-terraform.zip"
-  function_name    = "SampleFunctionWithTerraform"
-  role             = "${aws_iam_role.iam_for_lambda.arn}"
-  handler          = "index.get"
-  source_code_hash = "${base64sha256(file("/Users/userId/Sandbox/aws-lambda-terraform/aws-lambda-terraform.zip"))}"
-  runtime          = "nodejs8.10"
-
-  environment {
-    variables = {
-      foo = "bar"
-    }
-  }
+resource "aws_lambda_function" "my_lambda" {
+  filename = "sample_lambda.zip"
+  source_code_hash = "${data.archive_file.prepare_lambda_source.output_base64sha256}"
+  function_name = "SampleFunctionWithTerraform"
+  role = "${aws_iam_role.iam_for_lambda.arn}"
+  description = "Sample AWS lambda with terraform"
+  handler = "index.get"
+  runtime = "nodejs8.10"
 }
+
