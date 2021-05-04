@@ -15,7 +15,7 @@ steps:
       registry: https://npm.pkg.github.com/swamikalagiri
       username: swamikalagiri
       password: 
-        from_secret: $github_token
+        from_secret: github_token
       email: swami.kalagiri@gmail.com
   - name: deploy
     image: jmccann/drone-terraform:1
