@@ -5,7 +5,6 @@ steps:
   - name: build
     image: node
     commands:
-      - echo $github_token
       - npm install
       - npm test
       - npm run pack
@@ -17,7 +16,7 @@ steps:
       password: 
         from_secret: github_token
       email: swami.kalagiri@gmail.com
-  - name: deploy
-    image: jmccann/drone-terraform:1
-    plan: false
-    root_dir: infrastructure
+#   - name: deploy
+#     image: jmccann/drone-terraform:1
+#     plan: false
+#     root_dir: infrastructure
