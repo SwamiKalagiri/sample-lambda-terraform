@@ -7,16 +7,16 @@ steps:
     commands:
       - npm install
       - npm test
-      - npm run pack
-  - name: publish
-    image: plugins/npm
-    settings:
-      registry: https://npm.pkg.github.com/swamikalagiri
-      username: swamikalagiri
-      password: 
-        from_secret: github_token
-      email: swami.kalagiri@gmail.com
-#   - name: deploy
-#     image: jmccann/drone-terraform:1
-#     plan: false
-#     root_dir: infrastructure
+#       - npm run pack
+#   - name: publish
+#     image: plugins/npm
+#     settings:
+#       registry: https://npm.pkg.github.com/swamikalagiri
+#       username: swamikalagiri
+#       password: 
+#         from_secret: github_token
+#       email: swami.kalagiri@gmail.com
+  - name: deploy
+    image: jmccann/drone-terraform:1
+    plan: false
+    root_dir: infrastructure
