@@ -35,6 +35,6 @@ resource "aws_lambda_function" "my_lambda" {
   role = "${aws_iam_role.iam_for_lambda.arn}"
   description = "Sample AWS lambda with terraform"
   handler = "index.get"
-  runtime = "nodejs12.22"
+  runtime = "nodejs12"
 }
 
