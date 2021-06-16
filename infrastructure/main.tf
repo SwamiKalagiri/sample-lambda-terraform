@@ -4,7 +4,7 @@ provider "aws" {
 
 data "archive_file" "prepare_lambda_source" {
     type        = "zip"
-    source_dir  = "src"
+    source_dir  = "../src"
     output_path = "sample_lambda.zip"
 }
 
