@@ -16,7 +16,18 @@ steps:
 #       password: 
 #         from_secret: github_token
 #       email: swami.kalagiri@gmail.com
-  - name: deploy
-    image: jmccann/drone-terraform:1
-    plan: false
-    root_dir: infrastructure
+  - name: terraform
+    image: jmccann/drone-terraform:5
+    pull: always
+    environment:
+      AWS_ACCESS_KEY_ID:
+        from_secret: aws_access_key_id
+      AWS_SECRET_ACCESS_KEY:
+        from_secret: aws_secret_access_key
+    settings:
+      tf_version: 1.0.0
+      root_dir: infrastructure/
+      actions:
+        - validate
+        - plan
+        - apply
