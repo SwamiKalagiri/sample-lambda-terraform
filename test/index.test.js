@@ -10,7 +10,7 @@ describe('Index Test Suite', () => {
       name,
     };
     const context = {};
-    const expectedResponse = `Hello ${event.name}!, Lambda function created.`;
+    const expectedResponse = `Hello ${event.name}!, Welcome lambda world.`;
     const callback = (error, response) => {
       expect(response).toEqual(expectedResponse);
     };
