@@ -30,6 +30,6 @@
     "npm-pack-zip": "1.2.7"
   },
   "publishConfig": {
-  "registry":"https://npm.pkg.github.com/swamikalagiri"
-}
+    "registry": "https://npm.pkg.github.com/swamikalagiri"
+  }
 }
