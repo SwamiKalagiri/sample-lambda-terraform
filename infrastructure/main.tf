@@ -9,7 +9,7 @@ data "archive_file" "prepare_lambda_source" {
 }
 
 module "lambda_iam" {
-  source = "./modules/iam"
+  source = "./modules/iam.tf"
 }
 
 
